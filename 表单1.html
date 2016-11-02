@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>		
+  <title></title>
+ </head>
+<script>
+if(document.getElementsByClassName!=0)
+{
+	console.log(document.getElementsByClassName);
+}
+	function $(id){
+		return document.getElementById(id);
+	}
+	function initial(){
+		var mypro =$("mypro");
+		 output=$("res");
+		  a=$("a");
+		  b=$("b");
+		output.value=parseInt(a.value)+parseInt(b.value);
+		 var timer2=setInterval(function(){
+			value = parseInt(mypro.value);
+			if(value>=parseInt(mypro.max))
+			{
+				clearInterval( timer2 );
+				console.log(value);
+			}
+			mypro.value = ++value;
+		},100);
+	}
+	function resultout(){
+		output.value=parseInt(a.value)+parseInt(b.value);
+	}
+	window.addEventListener("load",initial,false);
+</script>
+ <body>
+ 
+  <input type="text" id="txtAddress" list="list" autocomplete="on"/>
+   <datalist id="list" >
+	<option label="北京" value="010" />
+	<option label="天津" value="020" />
+	<option label="上海" value="030" />
+	<option label="重庆" value="040" />
+  </datalist>
+  <progress id="mypro" max="100" value="20"></progress>
+  <form oninput="resultout()">
+  <fieldset>
+	  <legend style="text-align:center">calculation</legend>
+		  <label for="a"></label>
+		  <input title="input a number"type="text" value="30" name="a" id="a">+
+		  <input type="text" name="b" value="50" id="b"/>=<output name="result" id="res"></output>	
+	   </fieldset>
+  </form>
+  <hr/>
+ </body>
+</html>
